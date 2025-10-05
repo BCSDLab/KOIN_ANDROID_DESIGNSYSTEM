@@ -7,7 +7,9 @@ import androidx.compose.runtime.CompositionLocalProvider
 fun KoinTheme(
     content: @Composable () -> Unit
 ) {
-    CompositionLocalProvider {
+    CompositionLocalProvider(
+        LocalTypography provides provideKoinTypography()
+    ) {
         content()
     }
 }
