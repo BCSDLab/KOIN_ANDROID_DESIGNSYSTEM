@@ -164,3 +164,4 @@ data class KoinTypography(
 )
 
 val LocalTypography = staticCompositionLocalOf { koinTypography }
+val LocalTextStyle = staticCompositionLocalOf { TextStyle.Default }
