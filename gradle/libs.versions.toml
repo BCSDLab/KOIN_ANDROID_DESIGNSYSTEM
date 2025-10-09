@@ -2,7 +2,7 @@
 agp = "8.13.0"
 android-compileSdk = "36"
 android-minSdk = "28"
-composeMultiplatform = "1.9.0"
+composeMultiplatform = "1.8.2"
 kotlin = "2.2.20"
 ktlint = "13.1.0"
 vanniktechMavenPublish = "0.34.0"
