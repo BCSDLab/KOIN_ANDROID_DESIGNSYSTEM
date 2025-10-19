@@ -1,25 +1,21 @@
-package `in`.koreatech.designsystem.theme
+package `in`.koreatech.koin.designsystem
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
-import `in`.koreatech.designsystem.generated.resources.Res
-import `in`.koreatech.designsystem.generated.resources.pretendard_bold
-import `in`.koreatech.designsystem.generated.resources.pretendard_medium
-import `in`.koreatech.designsystem.generated.resources.pretendard_regular
-import org.jetbrains.compose.resources.Font
 
 @Composable
 private fun pretendardFontFamily() = FontFamily(
-    Font(Res.font.pretendard_bold, FontWeight.Bold, FontStyle.Normal),
-    Font(Res.font.pretendard_bold, FontWeight.SemiBold, FontStyle.Normal),
-    Font(Res.font.pretendard_medium, FontWeight.Medium, FontStyle.Normal),
-    Font(Res.font.pretendard_regular, FontWeight.Normal, FontStyle.Normal)
+    Font(R.font.pretendard_bold, FontWeight.Bold, FontStyle.Normal),
+    Font(R.font.pretendard_bold, FontWeight.SemiBold, FontStyle.Normal),
+    Font(R.font.pretendard_medium, FontWeight.Medium, FontStyle.Normal),
+    Font(R.font.pretendard_regular, FontWeight.Normal, FontStyle.Normal)
 )
 
 private val koinTypography = KoinTypography(
