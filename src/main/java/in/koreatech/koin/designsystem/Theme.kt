@@ -5,9 +5,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.ui.text.TextStyle
-import `in`.koreatech.designsystem.theme.KoinColors
-import `in`.koreatech.designsystem.theme.LocalColors
-import `in`.koreatech.designsystem.theme.lightColors
 
 @Composable
 fun KoinTheme(

@@ -1,4 +1,4 @@
-package `in`.koreatech.designsystem.theme
+package `in`.koreatech.koin.designsystem
 
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.graphics.Color
