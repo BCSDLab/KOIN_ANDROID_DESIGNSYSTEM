@@ -23,7 +23,7 @@ fun Icon(
     imageVector: ImageVector,
     contentDescription: String?,
     modifier: Modifier = Modifier,
-    tint: Color = LocalContentColor.current,
+    tint: Color = LocalContentColor.current
 ) {
     Icon(
         painter = rememberVectorPainter(imageVector),
@@ -33,13 +33,12 @@ fun Icon(
     )
 }
 
-
 @Composable
 fun Icon(
     painter: Painter,
     contentDescription: String?,
     modifier: Modifier = Modifier,
-    tint: Color = LocalContentColor.current,
+    tint: Color = LocalContentColor.current
 ) {
     val colorFilter = remember(tint) { if (tint == Color.Unspecified) null else ColorFilter.tint(tint) }
 

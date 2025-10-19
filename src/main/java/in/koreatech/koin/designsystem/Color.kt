@@ -1,6 +1,5 @@
 package `in`.koreatech.koin.designsystem
 
-import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.graphics.Color
 
