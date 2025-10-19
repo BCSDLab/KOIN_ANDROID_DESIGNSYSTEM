@@ -49,15 +49,27 @@ class SnackbarHostState {
         actionLabel: String? = null,
         duration: SnackbarDuration = if (actionLabel == null) SnackbarDuration.Short else SnackbarDuration.Long,
         variant: SnackbarVariant = SnackbarVariant.Neutral
-    ): SnackbarResult = showSnackbar(SnackbarVisualsImpl(message, actionLabel, duration, variant))
+    ): SnackbarResult {
+        actionLabel?.let {
+            require(it.length in 2..4) { "actionLabel length should be 2..4" }
+        }
 
-    suspend fun showSnackbar(visuals: SnackbarVisuals): SnackbarResult = mutex.withLock {
-        try {
-            return suspendCancellableCoroutine { continuation ->
-                currentSnackbarData = SnackbarDataImpl(visuals, continuation)
+        return showSnackbar(SnackbarVisualsImpl(message, actionLabel, duration, variant))
+    }
+
+    suspend fun showSnackbar(visuals: SnackbarVisuals): SnackbarResult {
+        visuals.actionLabel?.let {
+            require(it.length in 2..4) { "actionLabel length should be 2..4" }
+        }
+
+        mutex.withLock {
+            try {
+                return suspendCancellableCoroutine { continuation ->
+                    currentSnackbarData = SnackbarDataImpl(visuals, continuation)
+                }
+            } finally {
+                currentSnackbarData = null
             }
-        } finally {
-            currentSnackbarData = null
         }
     }
 
