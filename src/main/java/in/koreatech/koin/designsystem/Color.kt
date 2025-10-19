@@ -411,3 +411,4 @@ internal val lightColors = KoinColors(
 )
 
 val LocalColors = staticCompositionLocalOf { lightColors }
+val LocalContentColor = staticCompositionLocalOf { Color.Black }
