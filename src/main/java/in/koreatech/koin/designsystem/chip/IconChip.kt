@@ -17,18 +17,14 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.layout.Layout
 import androidx.compose.ui.layout.layoutId
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.role
 import androidx.compose.ui.semantics.semantics
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.util.fastFirst
 import `in`.koreatech.koin.designsystem.KoinTheme
 import `in`.koreatech.koin.designsystem.LocalContentColor
-import `in`.koreatech.koin.designsystem.R
-import `in`.koreatech.koin.designsystem.icon.Icon
 
 class IconChipStyle(
     val containerColor: Color,
@@ -156,6 +152,27 @@ object IconChipDefaults {
         border: BorderStroke = BorderStroke(1.dp, KoinTheme.colors.neutral300),
         shape: Shape = RoundedCornerShape(50.dp),
         iconColor: Color = KoinTheme.colors.neutral600,
+        iconSize: Dp = 16.dp
+    ): IconChipStyle = IconChipStyle(
+        containerColor = containerColor,
+        elevation = elevation,
+        ambientColor = ambientColor,
+        spotColor = spotColor,
+        border = border,
+        shape = shape,
+        iconColor = iconColor,
+        iconSize = iconSize
+    )
+
+    @Composable
+    fun disabledIconChipColors(
+        containerColor: Color = KoinTheme.colors.neutral200,
+        elevation: Dp = 0.dp,
+        ambientColor: Color = Color.Unspecified,
+        spotColor: Color = Color.Unspecified,
+        border: BorderStroke = BorderStroke(0.dp, containerColor),
+        shape: Shape = RoundedCornerShape(50.dp),
+        iconColor: Color = KoinTheme.colors.neutral400,
         iconSize: Dp = 16.dp
     ): IconChipStyle = IconChipStyle(
         containerColor = containerColor,

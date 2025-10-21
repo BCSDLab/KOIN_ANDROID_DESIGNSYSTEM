@@ -193,6 +193,31 @@ object ChipDefaults {
         iconColor = iconColor,
         iconSize = iconSize
     )
+
+    @Composable
+    fun disabledChipColors(
+        textColor: Color = KoinTheme.colors.neutral400,
+        textStyle: TextStyle = KoinTheme.typography.body2,
+        containerColor: Color = KoinTheme.colors.neutral200,
+        elevation: Dp = 0.dp,
+        ambientColor: Color = Color.Unspecified,
+        spotColor: Color = Color.Unspecified,
+        border: BorderStroke = BorderStroke(0.dp, containerColor),
+        shape: Shape = RoundedCornerShape(50.dp),
+        iconColor: Color = KoinTheme.colors.neutral400,
+        iconSize: Dp = 16.dp
+    ): ChipStyle = ChipStyle(
+        textColor = textColor,
+        textStyle = textStyle,
+        containerColor = containerColor,
+        elevation = elevation,
+        ambientColor = ambientColor,
+        spotColor = spotColor,
+        border = border,
+        shape = shape,
+        iconColor = iconColor,
+        iconSize = iconSize
+    )
 }
 
 @Composable
