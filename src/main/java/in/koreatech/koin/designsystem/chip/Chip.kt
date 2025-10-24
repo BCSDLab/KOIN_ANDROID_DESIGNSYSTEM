@@ -224,6 +224,7 @@ object ChipDefaults {
 fun Chip(
     label: @Composable () -> Unit,
     modifier: Modifier = Modifier,
+    disabled: Boolean = false,
     chipStyle: ChipStyle = ChipDefaults.primaryChipColors(),
     leadingIcon: @Composable (() -> Unit)? = null,
     onClick: () -> Unit = {}
@@ -231,7 +232,7 @@ fun Chip(
     ChipContent(
         label = label,
         leadingIcon = leadingIcon,
-        chipStyle = chipStyle,
+        chipStyle = if (disabled) ChipDefaults.disabledChipColors() else chipStyle,
         modifier = modifier
             .clip(chipStyle.shape)
             .clickable(onClick = onClick)
