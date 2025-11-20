@@ -32,6 +32,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.onSizeChanged
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
@@ -46,6 +47,8 @@ fun Switch(
     emphasized: Boolean = true,
     switchInteractionColors: SwitchInteractionColors = SwitchDefaults.switchInteractionColors()
 ) {
+    val density = LocalDensity.current
+
     var isChecked by remember(checked) { mutableStateOf(checked) }
     val animateOffset = remember { Animatable(if (isChecked) 1f else 0f) }
     LaunchedEffect(isChecked) {
@@ -119,6 +122,7 @@ fun Switch(
                 ((trackWidth - thumbWidth) * animateOffset.value)
             )
         }
+        var borderDpSize by remember { mutableStateOf(2.3.dp) }
         Box(
             modifier = Modifier
                 .fillMaxHeight(0.7f)
@@ -147,13 +151,16 @@ fun Switch(
                         },
                         shape = CircleShape
                     )
-                    .onSizeChanged { thumbWidth = it.width },
+                    .onSizeChanged {
+                        thumbWidth = it.width
+                        borderDpSize = with(density) { (it.height * 0.1f).toDp() }
+                    },
                 contentAlignment = Alignment.Center
             ) {
                 Box(
                     modifier = Modifier
                         .fillMaxSize()
-                        .padding(vertical = 2.3.dp, horizontal = 2.3.dp)
+                        .padding(all = borderDpSize)
                         .background(
                             color = if (isChecked) {
                                 if (emphasized) switchStateColors.selectedSwitchColors.contentColor else switchStateColors.notEmphasizedSwitchColors.contentColor
@@ -175,7 +182,7 @@ object SwitchDefaults {
         hoverSwitchStateColors: SwitchStateColors = hoverSwitchStateColors(),
         touchSwitchStateColors: SwitchStateColors = touchSwitchStateColors(),
         focusSwitchStateColors: SwitchStateColors = focusSwitchStateColors(),
-        disabledSwitchStateColors: SwitchStateColors = disabledFocusSwitchStateColors(),
+        disabledSwitchStateColors: SwitchStateColors = disabledFocusSwitchStateColors()
     ): SwitchInteractionColors = SwitchInteractionColors(
         defaultSwitchStateColors = defaultSwitchStateColors,
         hoverSwitchStateColors = hoverSwitchStateColors,
@@ -322,7 +329,7 @@ class SwitchStateColors internal constructor(
 class SwitchColors internal constructor(
     val containerColor: Color,
     val contentColor: Color,
-    val contentBorderColor: Color,
+    val contentBorderColor: Color
 )
 
 @Preview
